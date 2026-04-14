@@ -1,0 +1,22 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+  <div class="content-section">
+    <h2>Add New Post</h2>
+    <form method="post" class="mt-4">
+      {% csrf_token %}
+      {{ form.non_field_errors }}
+      <div class="mb-3">
+        {{ form.title.label_tag }}
+        {{ form.title }}
+        {{ form.title.errors }}
+      </div>
+      <div class="mb-3">
+        {{ form.content.label_tag }}
+        {{ form.content }}
+        {{ form.content.errors }}
+      </div>
+      <button class="btn btn-primary" type="submit">Save Post</button>
+    </form>
+  </div>
+{% endblock %}

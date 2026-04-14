@@ -1,0 +1,172 @@
+{% extends 'blog/base.html' %}
+
+{% block full_content %}
+<style>
+.contact-page {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 2.5rem 1rem 4rem;
+}
+
+.contact-head {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.contact-head h1 {
+  font-size: clamp(2.5rem, 4vw, 3.4rem);
+  margin-bottom: 0.75rem;
+}
+
+.contact-head p {
+  max-width: 720px;
+  margin: 0 auto;
+  color: #475569;
+  line-height: 1.8;
+}
+
+.contact-top {
+  display: grid;
+  grid-template-columns: 1.55fr 1fr;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.contact-form,
+.contact-info,
+.contact-map {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 24px;
+  box-shadow: 0 24px 60px rgba(15, 23, 42, 0.08);
+  padding: 2rem;
+}
+
+.contact-form h2,
+.contact-info h2,
+.contact-map h2 {
+  margin-bottom: 1rem;
+}
+
+.contact-form form {
+  display: grid;
+  gap: 1.25rem;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  border: 1px solid #cbd5e1;
+  border-radius: 16px;
+  padding: 1rem 1.1rem;
+  font-size: 1rem;
+  background: #f8fafc;
+  color: #0f172a;
+  transition: border-color .2s ease, box-shadow .2s ease;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: none;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 6px rgba(37, 99, 235, 0.12);
+}
+
+.btn-submit {
+  width: fit-content;
+  padding: 1rem 2rem;
+  border-radius: 999px;
+  font-weight: 600;
+}
+
+.contact-info address {
+  font-style: normal;
+  color: #475569;
+  line-height: 1.9;
+}
+
+.contact-map {
+  margin-top: 0.5rem;
+}
+
+.map-responsive {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+  border-radius: 24px;
+  box-shadow: 0 24px 80px rgba(15, 23, 42, 0.08);
+}
+
+.map-responsive iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+@media (max-width: 992px) {
+  .contact-top {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .contact-page {
+    padding: 1.5rem 1rem 3rem;
+  }
+}
+</style>
+
+<section class="contact-page">
+  <div class="contact-head">
+    <h1>Contact Us</h1>
+    <p>Please send your request using the form on the left and review our office address on the right.</p>
+  </div>
+
+  <div class="contact-top">
+    <section class="contact-form" id="contact-form">
+      <h2>Send a message</h2>
+      <form>
+        <div class="form-row">
+          <input type="text" name="name" placeholder="Full name" required>
+          <input type="email" name="email" placeholder="Email address" required>
+        </div>
+        <div class="form-row">
+          <input type="text" name="company" placeholder="Company name">
+          <input type="text" name="subject" placeholder="Subject">
+        </div>
+        <textarea name="message" rows="6" placeholder="Describe your project or request"></textarea>
+        <button type="submit" class="btn btn-primary btn-submit">Send Message</button>
+      </form>
+    </section>
+
+    <section class="contact-info">
+      <h2>Office address</h2>
+      <address>
+        221 Innovation Drive<br>
+        Suite 500<br>
+        Silicon City, CA 94016
+      </address>
+      <p>Phone: <a href="tel:+18007123456">+1 (800) 712-3456</a></p>
+      <p>Email: <a href="mailto:support@yourdomain.com">support@yourdomain.com</a></p>
+    </section>
+  </div>
+
+  <section class="contact-map">
+    <h2>Our location</h2>
+    <div class="map-responsive">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3021.8715012656347!2d-73.98085718459391!3d40.76435697932688!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c258f8be84fab7%3A0x2188fc80cee1c72f!2sCentral%20Park!5e0!3m2!1sen!2sus!4v1711234567890!5m2!1sen!2sus" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+  </section>
+</section>
+{% endblock %}
+

@@ -1,0 +1,161 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+<style>
+.about-page {
+  padding: 2rem 1rem 3rem;
+}
+
+.about-hero {
+  display: grid;
+  gap: 2rem;
+  align-items: center;
+  background: linear-gradient(135deg, #1e293b, #0f172a);
+  color: #f8fafc;
+  border-radius: 30px;
+  padding: 3rem 2rem;
+  box-shadow: 0 30px 90px rgba(15, 23, 42, 0.25);
+  margin-bottom: 2rem;
+}
+
+.about-hero h1 {
+  font-size: clamp(2.75rem, 5vw, 4rem);
+  line-height: 1.05;
+  margin-bottom: .75rem;
+}
+
+.about-hero p {
+  max-width: 720px;
+  line-height: 1.8;
+  color: #cbd5e1;
+}
+
+.about-grid {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.about-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 24px;
+  box-shadow: 0 20px 70px rgba(15, 23, 42, 0.06);
+  padding: 2rem;
+}
+
+.about-card h2 {
+  margin-bottom: 1rem;
+}
+
+.about-card p {
+  color: #475569;
+  line-height: 1.8;
+}
+
+.about-list {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+  display: grid;
+  gap: 1rem;
+}
+
+.about-list li {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+}
+
+.about-list li::before {
+  content: '•';
+  color: #2563eb;
+  font-size: 1.5rem;
+  line-height: 1;
+  margin-top: .2rem;
+}
+
+.about-action {
+  display: grid;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.about-action a {
+  width: fit-content;
+}
+
+@media (min-width: 900px) {
+  .about-hero {
+    grid-template-columns: 1.2fr .9fr;
+  }
+
+  .about-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .about-page {
+    padding: 1.5rem 1rem 2.5rem;
+  }
+
+  .about-hero {
+    padding: 2rem 1.5rem;
+  }
+}
+</style>
+
+<section class="about-page">
+  <section class="about-hero">
+    <div>
+      <span class="badge bg-primary text-uppercase px-3 py-2">About the Blog</span>
+      <h1>Fast insights for ambitious developers and authors.</h1>
+      <p>Welcome to a space built for storytellers, creators, and technical leaders who want to learn, share, and grow through clear ideas, dependable tutorials, and thoughtful collaboration.</p>
+    </div>
+    <div>
+      <div class="about-card">
+        <h2>Mission 🎯</h2>
+        <p>Empower readers with practical and engaging content that turns complex ideas into fast, actionable learning. Every article is designed to make development, writing, and digital strategy easier to understand and apply.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="about-grid">
+    <article class="about-card">
+      <h2>What the blog offers 📚</h2>
+      <ul class="about-list">
+        <li><strong>Hands-on guides</strong> that move from concept to real implementation.</li>
+        <li><strong>Technical deep dives</strong> into tools, frameworks, and modern workflows.</li>
+        <li><strong>Creative process tips</strong> for writing, publishing, and sharing your ideas effectively.</li>
+      </ul>
+    </article>
+
+    <article class="about-card">
+      <h2>Who it's for 👨‍💻</h2>
+      <ul class="about-list">
+        <li>Developers building projects with Django, Python, and web tooling.</li>
+        <li>Bloggers and authors who want sharper writing and clearer storytelling.</li>
+        <li>Teams looking for practical guidance on content, design, and product workflow.</li>
+      </ul>
+    </article>
+
+    <article class="about-card">
+      <h2>Technology used ⚙️</h2>
+      <ul class="about-list">
+        <li>Django and Python for the web platform.</li>
+        <li>Bootstrap and custom CSS for responsive page design.</li>
+        <li>Modern HTML patterns and Django templates for fast rendering.</li>
+      </ul>
+    </article>
+
+    <article class="about-card">
+      <h2>Contact / Collaboration 🤝</h2>
+      <p>Want to partner, contribute, or build something together? Reach out through the contact page to start a conversation about content, development, or learning opportunities.</p>
+      <div class="about-action">
+        <a href="{% url 'blog-contact' %}" class="btn btn-primary">Contact Us</a>
+        <a href="{% url 'blog-home' %}" class="btn btn-outline-secondary">Explore Posts</a>
+      </div>
+    </article>
+  </div>
+</section>
+{% endblock %}
