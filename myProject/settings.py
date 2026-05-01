@@ -28,11 +28,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # ALLOWED_HOSTS = []
 
-SECRET_KEY = os.getenv("SECRET_KEY")
-DEBUG = os.getenv("DEBUG", "False") == "True"
-ALLOWED_HOSTS = os.getenv("ALLOWED_HOSTS", "").split(",")
+# SECRET_KEY = os.getenv("SECRET_KEY")
+# DEBUG = os.getenv("DEBUG", "False") == "True"
+# ALLOWED_HOSTS = os.getenv("ALLOWED_HOSTS", "").split(",")
 
-
+SECRET_KEY = "dev-secret-key"
+DEBUG = True
+ALLOWED_HOSTS = ['*']
 # Application definition
 
 INSTALLED_APPS = [

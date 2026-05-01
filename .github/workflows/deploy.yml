@@ -1,0 +1,32 @@
+name: Django CI/CD Pipeline
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-push:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Login to Docker Hub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.nshul1234 }}
+          password: ${{ secrets.Anshu22##177 }}
+
+      - name: Build Docker Image
+        run: |
+          docker build -t nshul1234/blog_app:latest .
+
+      - name: Push to Docker Hub
+        run: |
+          docker push nshul1234/blog_app:latest
+
+      - name: Trigger Render Deploy
+        run: |
+          curl -X POST ${{ secrets.RENDER_DEPLOY_HOOK }}
